@@ -1,0 +1,23 @@
+2.1.1  반복 실행
+정규난수로 구성된 1,000*100 행렬을 생성하는 R 코드
+set.seed(123457)
+N <- 1000
+d <- 100
+X <- matrix(rnorm(N*d, mean = 3, sd = 10), N, d)
+
+함수 apply()는 행렬 형태의 데이터에 대해 행 방향 또는 열 방향으로 지정한 함수를 적용해 준다.
+(head(apply(X = X, MARGIN = 1, FUN = mean)) #행 방향으로 평균 계산 반복 실행
+
+행별 또는 열별 평균 또는 합을 계산할 때에는 colSums(), rowSums(), colMenas(), rowMeans() 함수를 이용하면 보다 편리하다. 무엇보다 apply()나 루프를 사용하는 것보다 훨씬 빠른 속도로 계산을 마칠 수 있다는 장점이 있다.
+#for(n in 1:N) mean(X[n,]
+#apply(X, 1, mean)
+head(rowMeans(X))
+
+head(colMeans(X))
+head(rowSums(X))
+head(colSums(X))
+round(X[1:5. 1:10], 2]
+Z <- scale(X) # scale(X, center = TRUE, scale = TRUE)
+round(Z[1:5, 1:10], 2)
+
+round(cov(Z)[1:5, 1:5], 2)
